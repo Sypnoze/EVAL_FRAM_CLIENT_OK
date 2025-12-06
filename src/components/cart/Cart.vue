@@ -1,6 +1,10 @@
 <script setup>
 import CartItem from './CartItem.vue';
 import CartTotal from './CartTotal.vue';
+import { cartStore } from '@/stores/shoppingCart';
+
+
+const { cart } = cartStore;
 
 </script>
 <template>
@@ -11,7 +15,11 @@ import CartTotal from './CartTotal.vue';
             
             <!-- Repeat for other cart items -->
 
-            <CartItem />
+            <CartItem 
+            v-for="item in cart"
+            :key="item.id"
+            :item="item"
+            />
           </ul>
           <CartTotal/>
         </div>

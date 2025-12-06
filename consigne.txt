@@ -1,0 +1,10 @@
+Obligatoire pour réussir:
+Liste dynamique des produits depuis mockAPI
+Ajout dans le panier
+Liste dynamique du panier
+Calcul du total HTVA
+Modification de la quantité dans le panier
+Suppression du panier
+
+Structure avec un store products avec un DB.js
+et un store shoppingcart 
