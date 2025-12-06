@@ -36,9 +36,17 @@ const subTotal = computed(() =>
   )
 );
 
+const deleteOneById = (id) => {
+  cart.splice(
+    cart.findIndex((item) => item.id === id),
+    1
+  );
+};
+
 export const cartStore = {
   cart,
   addItem,
   subTotal,
+  deleteOneById,
 };
 

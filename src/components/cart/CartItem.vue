@@ -1,4 +1,8 @@
 <script setup>
+import { cartStore } from '@/stores/shoppingCart';
+
+const { deleteOneById } = cartStore;
+
 const props = defineProps({
   item: {
     type: Object,
@@ -26,7 +30,7 @@ const props = defineProps({
                   v-model.number="item.quantity"
                   min="0"
                 />
-                <button class="ml-2 text-red-500 hover:text-red-700">
+                <button class="ml-2 text-red-500 hover:text-red-700" @click="deleteOneById(item.id)">
                   <i class="fas fa-times"></i>
                 </button>
               </div>
