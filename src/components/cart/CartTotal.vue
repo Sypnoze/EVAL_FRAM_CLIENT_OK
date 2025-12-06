@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { cartStore } from '@/stores/shoppingCart';
+const { subTotal } = cartStore;
+</script>
 <template>
 <div class="bg-gray-50">
             <div class="p-6">
@@ -21,7 +24,7 @@
               </div>
               <div class="flex justify-between font-bold mb-1 text-xl">
                 <span><strong>Total Général:</strong></span>
-                <span>€65.00</span>
+                <span>€{{ subTotal.toFixed(2) }}</span>
               </div>
               <button
                 class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cart-btn"

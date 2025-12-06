@@ -1,4 +1,4 @@
-import { reactive, watch } from "vue";
+import { reactive, watch, computed } from "vue";
 
 // 1. On récupère le panier depuis le localStorage (ou [] si rien)
 const cart = reactive(JSON.parse(localStorage.getItem("cart") || "[]"));
@@ -29,8 +29,16 @@ const addItem = (product) => {
   }
 };
 
+const subTotal = computed(() =>
+  cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  )
+);
+
 export const cartStore = {
   cart,
   addItem,
+  subTotal,
 };
 
