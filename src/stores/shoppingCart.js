@@ -1,9 +1,9 @@
 import { reactive, watch, computed } from "vue";
 
-// 1. On récupère le panier depuis le localStorage (ou [] si rien)
+// local storage
 const cart = reactive(JSON.parse(localStorage.getItem("cart") || "[]"));
 
-// 2. On sauvegarde à chaque changement
+// watcher pour la sauvegarde
 watch(
   cart,
   (newCart) => {
@@ -28,14 +28,14 @@ const addItem = (product) => {
     });
   }
 };
-
+// total du panier
 const subTotal = computed(() =>
   cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   )
 );
-
+// le delete d'item
 const deleteOneById = (id) => {
   cart.splice(
     cart.findIndex((item) => item.id === id),
